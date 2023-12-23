@@ -1,4 +1,4 @@
-import { ModuleFederationConfig } from '@nx/webpack';
+import {ModuleFederationConfig} from '@nx/webpack';
 
 const config: ModuleFederationConfig = {
   name: 'ara-shell',
@@ -14,7 +14,10 @@ const config: ModuleFederationConfig = {
    * declare module 'my-external-remote';
    *
    */
-  remotes: ['ara-notification'],
+  remotes: [
+    ['ara-notification', 'http://localhost:4201/remoteEntry.mjs'],
+    ['ara-menu', 'http://localhost:4202/remoteEntry.js']
+  ]
 };
 
 export default config;
