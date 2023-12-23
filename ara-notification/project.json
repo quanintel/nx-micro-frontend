@@ -1,0 +1,103 @@
+{
+  "name": "ara-notification",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "ara-notification/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/ara-notification",
+        "index": "ara-notification/src/index.html",
+        "main": "ara-notification/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "ara-notification/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "ara-notification/src/favicon.ico",
+          "ara-notification/src/assets"
+        ],
+        "styles": ["ara-notification/src/styles.scss"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "ara-notification/webpack.config.ts"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "ara-notification/webpack.prod.config.ts"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nx/angular:dev-server",
+      "options": {
+        "port": 4201,
+        "publicHost": "http://localhost:4201"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "ara-notification:build:production"
+        },
+        "development": {
+          "buildTarget": "ara-notification:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "ara-notification:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "defaultConfiguration": "production",
+      "options": {
+        "buildTarget": "ara-notification:build",
+        "port": 4201,
+        "watch": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "ara-notification:build:development"
+        },
+        "production": {
+          "buildTarget": "ara-notification:build:production"
+        }
+      }
+    }
+  }
+}
