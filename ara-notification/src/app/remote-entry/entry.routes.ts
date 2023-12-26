@@ -1,6 +1,7 @@
 import { Route } from '@angular/router';
-import { RemoteEntryComponent } from './entry.component';
+import {AraNotificationComponent} from "ara-notification/Component";
+
 
 export const remoteRoutes: Route[] = [
-  { path: '', component: RemoteEntryComponent },
+  { path: '', component: AraNotificationComponent },
 ];

@@ -1,6 +1,6 @@
-import {NxWelcomeComponent} from './nx-welcome.component';
 import {Route} from '@angular/router';
-import {AraMenuComponent, AraMenuOption} from "./ara-menu/ara-menu.component";
+import {AraMenuComponent, AraMenuOption} from "./components/ara-menu/ara-menu.component";
+import {WrapRootComponent} from "./components/wrap-root/wrap-root.component";
 
 export const appRoutes: Route[] = [
   {
@@ -18,6 +18,6 @@ export const appRoutes: Route[] = [
   },
   {
     path: '',
-    component: NxWelcomeComponent,
+    component: WrapRootComponent
   },
 ];

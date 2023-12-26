@@ -1,4 +1,4 @@
-import { withModuleFederation } from '@nx/angular/module-federation';
+import {withModuleFederation} from '@nx/angular/module-federation';
 import config from './module-federation.config';
 
 export default withModuleFederation({
@@ -13,4 +13,8 @@ export default withModuleFederation({
    *   ['app2', 'https://app2.example.com'],
    * ]
    */
+  remotes: [
+    ['ara-menu', 'https://menu.quanka.duckdns.org/remoteEntry.js'],
+    ['ara-notification', 'https://noti.quanka.duckdns.org/remoteEntry.mjs'],
+  ]
 });

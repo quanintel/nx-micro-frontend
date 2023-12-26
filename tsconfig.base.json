@@ -15,10 +15,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-//      "ara-menu/Module": ["ara-menu/src/remote-entry.ts"],
-//      "ara-notification/Routes": [
-//        "ara-notification/src/app/remote-entry/entry.routes.ts"
-//      ]
+      "ara-notification/Component": [
+        "ara-notification/src/app/components/ara-notification/ara-notification.component.ts"
+      ],
+      "ara-notification/Routes": [
+        "ara-notification/src/app/remote-entry/entry.routes.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

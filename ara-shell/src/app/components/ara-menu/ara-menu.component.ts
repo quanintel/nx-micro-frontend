@@ -1,5 +1,4 @@
-import {Component, ElementRef, inject, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {Component, ElementRef, inject, Input, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 
 export interface AraMenuOption {
@@ -13,12 +12,14 @@ export interface AraMenuOption {
   template: '',
 })
 export class AraMenuComponent implements OnInit, OnDestroy {
+  @Input() options!: AraMenuOption
+
   private readonly elementRef = inject(ElementRef<HTMLElement>)
   private readonly route = inject(ActivatedRoute)
   element!: HTMLElement
 
   async ngOnInit() {
-    const {loadRemote, selector} = this.route.snapshot.data as AraMenuOption
+    const {loadRemote, selector} = this.options || this.route.snapshot.data as AraMenuOption
     await loadRemote()
 
     this.element = document.createElement(selector)

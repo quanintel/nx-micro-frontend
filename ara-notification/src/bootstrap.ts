@@ -1,7 +1,7 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';
-import { RemoteEntryComponent } from './app/remote-entry/entry.component';
+import {AraNotificationComponent} from "ara-notification/Component";
 
-bootstrapApplication(RemoteEntryComponent, appConfig).catch((err) =>
+bootstrapApplication(AraNotificationComponent, appConfig).catch((err) =>
   console.error(err)
 );
